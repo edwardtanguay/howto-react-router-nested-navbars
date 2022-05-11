@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
+import { NavLink, Routes, Route, Navigate, useParams, Outlet } from 'react-router-dom';
 
 const url = 'https://edwardtanguay.netlify.app/share/howtos.json';
 
 export const PageHowtos = () => {
 	const [howtos, setHowtos] = useState([]);
+	const { id } = useParams();
 
 	useEffect(() => {
 		(async () => {
@@ -34,6 +35,8 @@ export const PageHowtos = () => {
 					);
 				})}
 			</nav>
+
+			<div>displaying id {id}</div>
 
 			<div className="howtos">
 				{howtos.map((howto, index) => {

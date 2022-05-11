@@ -19,9 +19,11 @@ function App() {
 			<Routes>
 				<Route path="/welcome" element={<PageWelcome />} />
 				<Route path="/books/*" element={<PageBooks />} />
-				<Route path="/howtos" element={<PageHowtos />} />
+				<Route path="/howtos" element={<PageHowtos />}>
+					<Route path=":id"/>
+				</Route>
 				<Route path="/about" element={<PageAbout />} />
-				<Route path="/" element={<Navigate to="/welcome" replace />}/>
+				<Route path="/" element={<Navigate to="/welcome" replace />} />
 			</Routes>
 		</div>
 	);

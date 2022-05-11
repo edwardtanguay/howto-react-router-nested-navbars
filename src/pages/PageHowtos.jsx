@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { NavLink, Routes, Route, Navigate, useParams, Outlet } from 'react-router-dom';
+import {
+	NavLink,
+	Routes,
+	Route,
+	Navigate,
+	useParams,
+	Outlet,
+} from 'react-router-dom';
 
 const url = 'https://edwardtanguay.netlify.app/share/howtos.json';
 
@@ -27,7 +34,9 @@ export const PageHowtos = () => {
 				{howtos.map((howto, index, arr) => {
 					return (
 						<>
-							<div className="navlink">{howto.title}</div>
+							<NavLink className="navlink" to={`${howto.id}`}>
+								{howto.title}
+							</NavLink>
 							{index < arr.length - 1 && (
 								<span className="separator">|</span>
 							)}
@@ -36,22 +45,24 @@ export const PageHowtos = () => {
 				})}
 			</nav>
 
-			<div>displaying id {id}</div>
-
 			<div className="howtos">
 				{howtos.map((howto, index) => {
 					return (
-						<div className="howto" key={index}>
-							<div className="title">
-								<a
-									target="_blank"
-									href={`https://edwardtanguay.netlify.app/howtos?id=${howto.id}`}
-								>
-									{howto.title}
-								</a>
-							</div>
-							<pre className="body">{howto.body}</pre>
-						</div>
+						<>
+							{howto.id == id && (
+								<div className="howto" key={index}>
+									<div className="title">
+										<a
+											target="_blank"
+											href={`https://edwardtanguay.netlify.app/howtos?id=${howto.id}`}
+										>
+											{howto.title}
+										</a>
+									</div>
+									<pre className="body">{howto.body}</pre>
+								</div>
+							)}
+						</>
 					);
 				})}
 			</div>

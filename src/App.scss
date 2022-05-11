@@ -19,9 +19,14 @@ body {
 			font-size: 1.1rem;
 			margin: 0 0 20px 0;
 
+			a.active {
+				color: #999; 
+			}
+
 			.navlink {
 				display: inline;
 				border-bottom: 1px solid #777;
+
 				&:hover {
 					color: rgb(244, 215, 162);
 				}

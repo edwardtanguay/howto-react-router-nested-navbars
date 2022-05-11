@@ -13,25 +13,46 @@ body {
 		color: yellow;
 	}
 
-	.howtos {
-		.howto {
-			background-color: #444;
-			padding: 10px;
-			border-radius: 5px;
-			margin: 0 0 10px 0;
+	.page_howtos {
 
-			.title a {
-				font-size: 1.3rem;
-				color: rgb(232, 188, 106);
+		nav {
+			font-size: 1.1rem;
+			margin: 0 0 20px 0;
+
+			.navlink {
+				display: inline;
+				border-bottom: 1px solid #777;
+				&:hover {
+					color: rgb(244, 215, 162);
+				}
 			}
 
-			.body {
-				font-size: .8rem;
-				color: #fff;
-				white-space: pre-wrap;
-				background-color: #222;
-				border-radius: 5px;
+			.separator {
+				color: #666;
+				margin: 0 5px;
+			}
+		}
+
+		.howtos {
+			.howto {
+				background-color: #444;
 				padding: 10px;
+				border-radius: 5px;
+				margin: 0 0 10px 0;
+
+				.title a {
+					font-size: 1.3rem;
+					color: rgb(232, 188, 106);
+				}
+
+				.body {
+					font-size: .8rem;
+					color: #fff;
+					white-space: pre-wrap;
+					background-color: #222;
+					border-radius: 5px;
+					padding: 10px;
+				}
 			}
 		}
 	}

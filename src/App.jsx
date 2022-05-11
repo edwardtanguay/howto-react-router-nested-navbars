@@ -15,7 +15,7 @@ function App() {
 			<hr />
 			<Routes>
 				<Route path="/welcome" element={<PageWelcome />} />
-				<Route path="/books" element={<PageBooks />} />
+				<Route path="/books/*" element={<PageBooks />} />
 				<Route path="/about" element={<PageAbout />} />
 				<Route path="/" element={<Navigate to="/welcome" replace />}/>
 			</Routes>

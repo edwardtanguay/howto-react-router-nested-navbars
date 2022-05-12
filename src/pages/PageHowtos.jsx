@@ -1,19 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-	NavLink,
-	Routes,
-	Route,
-	Navigate,
-	useParams,
-	Outlet,
-} from 'react-router-dom';
+import { NavLink, useParams, Outlet, useNavigate } from 'react-router-dom';
 
 const url = 'https://edwardtanguay.netlify.app/share/howtos.json';
 
 export const PageHowtos = () => {
 	const [howtos, setHowtos] = useState([]);
-	const { id } = useParams();
+	let { id } = useParams();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		(async () => {
@@ -24,6 +18,17 @@ export const PageHowtos = () => {
 			setHowtos(_filteredHowtos);
 		})();
 	}, []);
+
+	const getCurrentHowto = () => {
+		if (id) {
+			return howtos.find((m) => m.id == id);
+		} else {
+			if (howtos.length > 0) {
+				const _id = String(howtos[0].id);
+				navigate(_id);
+			}
+		}
+	};
 
 	return (
 		<div className="page_howtos">
@@ -45,27 +50,7 @@ export const PageHowtos = () => {
 				})}
 			</nav>
 
-			<div className="howtos">
-				{howtos.map((howto, index) => {
-					return (
-						<>
-							{howto.id == id && (
-								<div className="howto" key={index}>
-									<div className="title">
-										<a
-											target="_blank"
-											href={`https://edwardtanguay.netlify.app/howtos?id=${howto.id}`}
-										>
-											{howto.title}
-										</a>
-									</div>
-									<pre className="body">{howto.body}</pre>
-								</div>
-							)}
-						</>
-					);
-				})}
-			</div>
+			<Outlet context={getCurrentHowto()} />
 		</div>
 	);
 };

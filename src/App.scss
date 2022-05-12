@@ -20,10 +20,10 @@ body {
 			margin: 0 0 20px 0;
 
 			a.active {
-				color: #999; 
+				color: #999;
 			}
 
-			.navlink {
+			a.navlink {
 				display: inline;
 				border-bottom: 1px solid #777;
 
@@ -32,33 +32,36 @@ body {
 				}
 			}
 
-			.separator {
-				color: #666;
-				margin: 0 5px;
+			a.navlink.active {
+				color: rgb(244, 215, 162);
+				border-bottom: 0;
 			}
 		}
 
-		.howtos {
-			.howto {
-				background-color: #444;
-				padding: 10px;
-				border-radius: 5px;
-				margin: 0 0 10px 0;
+		.separator {
+			color: #666;
+			margin: 0 5px;
+		}
+	}
 
-				.title a {
-					font-size: 1.3rem;
-					color: rgb(232, 188, 106);
-				}
+	.howto {
+		background-color: #444;
+		padding: 10px;
+		border-radius: 5px;
+		margin: 0 0 10px 0;
 
-				.body {
-					font-size: .8rem;
-					color: #fff;
-					white-space: pre-wrap;
-					background-color: #222;
-					border-radius: 5px;
-					padding: 10px;
-				}
-			}
+		.title a {
+			font-size: 1.3rem;
+			color: rgb(232, 188, 106);
+		}
+
+		.body {
+			font-size: .8rem;
+			color: #fff;
+			white-space: pre-wrap;
+			background-color: #222;
+			border-radius: 5px;
+			padding: 10px;
 		}
 	}
 }
